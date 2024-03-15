@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkkwp7iscwd8k"]
+
+[ext_resource type="Script" path="res://Turret.gd" id="1_cx7ql"]
+[ext_resource type="Texture2D" uid="uid://c0srko8cpcgiw" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="1_jo3uv"]
+[ext_resource type="PackedScene" uid="uid://c42mutrqvt7qi" path="res://missile.tscn" id="2_44pfg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mhll"]
+radius = 254.049
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_cx7ql")
+MISSILE = ExtResource("2_44pfg")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_jo3uv")
+region_enabled = true
+region_rect = Rect2(1216, 448, 64, 64)
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_jo3uv")
+region_enabled = true
+region_rect = Rect2(1216, 640, 64, 64)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(250, 2.08165e-12)
+collide_with_areas = true
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="RayCast2D"]
+rotation = 1.5708
+points = PackedVector2Array(2.08165e-12, 2.08165e-12, 2.08165e-12, -250)
+default_color = Color(1, 1, 1, 0.521569)
+end_cap_mode = 2
+
+[node name="PatrolZone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolZone"]
+shape = SubResource("CircleShape2D_5mhll")
+
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="area_entered" from="PatrolZone" to="." method="_on_patrol_zone_area_entered"]
+[connection signal="area_exited" from="PatrolZone" to="." method="_on_patrol_zone_area_exited"]

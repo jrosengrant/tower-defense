@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmcm1sbl7mw4h"]
+
+[ext_resource type="Script" path="res://enemy_path.gd" id="1_5q8cl"]
+[ext_resource type="Curve2D" uid="uid://8y050vnkr8x5" path="res://Level_1_Path2D.tres" id="2_tnmcf"]
+[ext_resource type="PackedScene" uid="uid://dm7x27h2o5aba" path="res://enemy.tscn" id="3_u7mt2"]
+
+[node name="EnemyPath" type="Node2D"]
+script = ExtResource("1_5q8cl")
+speed = 100
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = ExtResource("2_tnmcf")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(2, 225)
+rotation = 0.00212314
+loop = false
+
+[node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource("3_u7mt2")]
+
+[connection signal="area_entered" from="Path2D/PathFollow2D/Enemy" to="." method="_on_enemy_area_entered"]

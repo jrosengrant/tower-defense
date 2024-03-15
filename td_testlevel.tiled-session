@@ -1,0 +1,54 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tilepractice.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "grass.tsx": {
+            "scaleInDock": 1.8564,
+            "scaleInEditor": 2.12
+        },
+        "plants.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2.12
+        },
+        "player.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3.5881
+        },
+        "props.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2.12
+        },
+        "tilepractice.tmx": {
+            "scale": 1.2295,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 48.80032533550222,
+                "y": 344.8556323708824
+            }
+        }
+    },
+    "last.imagePath": "/Users/jebsi/Documents/Coding/Side Projects/tower-defense/Pixel Art Top Down - Basic/Texture",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "grass.tsx",
+        "plants.tsx",
+        "props.tsx",
+        "tilepractice.tmx",
+        "player.tsx"
+    ],
+    "project": "td_testlevel.tiled-project",
+    "recentFiles": [
+        "grass.tsx",
+        "plants.tsx",
+        "props.tsx",
+        "player.tsx",
+        "tilepractice.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

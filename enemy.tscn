@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm7x27h2o5aba"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_3835q"]
+[ext_resource type="Texture2D" uid="uid://c0srko8cpcgiw" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="1_ctg0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmio0"]
+size = Vector2(40.5, 41.5)
+
+[node name="Enemy" type="Area2D" groups=["mob"]]
+collision_mask = 2
+script = ExtResource("1_3835q")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kmio0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ctg0a")
+region_enabled = true
+region_rect = Rect2(978, 657, 30, 30)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
